@@ -1,7 +1,14 @@
 from streamlit_webrtc import webrtc_streamer, RTCConfiguration
+import streamlit as st
 import av
 import cv2
 
+# Title
+st.set_page_config(page_title="Face Detector", page_icon="🤖", layout="wide")
+st.write("# Welcome to the Cascade Classifier from OpenCV - Quick Demo! 🤖")
+
+
+# Model
 # cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
