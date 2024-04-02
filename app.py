@@ -22,8 +22,12 @@ class VideoProcessor:
         faces = cascade.detectMultiScale(
             cv2.cvtColor(frm, cv2.COLOR_BGR2GRAY), 1.1, 3
         )
+        i = 1
         for x, y, w, h in faces:
-            cv2.rectangle(frm, (x, y), (x + w, y + h), (0, 255, 0), 3)
+            cv2.rectangle(frm, (x, y), (x + w, y + h), (0, 255, 0), 1)
+            cv2.putText(frm, f"Person {i}", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 1, cv2.LINE_AA)
+            i += 1
+
         return av.VideoFrame.from_ndarray(frm, format="bgr24")
 
 
