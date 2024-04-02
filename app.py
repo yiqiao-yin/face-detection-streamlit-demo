@@ -42,17 +42,19 @@ class VideoProcessor:
                 1,
                 cv2.LINE_AA,
             )
-            cv2.putText(
-                frm,
-                f"No. of people: {i}",
-                (10, 10),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                1,
-                (0, 255, 0),
-                1,
-                cv2.LINE_AA,
-            )
             i += 1
+        
+        # display final count on the screen
+        cv2.putText(
+            frm,
+            f"No. of people: {i}",
+            (20, 30),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            1,
+            (0, 255, 0),
+            1,
+            cv2.LINE_AA,
+        )
 
         return av.VideoFrame.from_ndarray(frm, format="bgr24")
 
