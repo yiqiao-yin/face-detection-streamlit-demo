@@ -2,7 +2,8 @@ from streamlit_webrtc import webrtc_streamer, RTCConfiguration
 import av
 import cv2
 
-cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+# cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 
 class VideoProcessor:
