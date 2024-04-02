@@ -33,6 +33,7 @@ class VideoProcessor:
         for x, y, w, h in faces:
             cv2.rectangle(frm, (x, y), (x + w, y + h), (0, 255, 0), 1)
             cv2.putText(frm, f"Person {i}", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 1, cv2.LINE_AA)
+            cv2.putText(frm, f"No. of people: {i}", (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 1, cv2.LINE_AA)
             i += 1
 
         return av.VideoFrame.from_ndarray(frm, format="bgr24")
