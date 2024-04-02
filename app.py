@@ -19,7 +19,6 @@ class VideoProcessor:
             av.VideoFrame: Processed video frame with rectangles drawn around faces.
         """
         frm = frame.to_ndarray(format="bgr24")
-        frm_orig = frm
         faces = cascade.detectMultiScale(
             cv2.cvtColor(frm, cv2.COLOR_BGR2GRAY), 1.1, 3
         )
@@ -29,7 +28,7 @@ class VideoProcessor:
             cv2.putText(frm, f"Person {i}", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 1, cv2.LINE_AA)
             i += 1
 
-        return av.VideoFrame.from_ndarray([frm_orig, frm], format="bgr24")
+        return av.VideoFrame.from_ndarray([frm], format="bgr24")
 
 
 webrtc_streamer(
